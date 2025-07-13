@@ -277,7 +277,7 @@ export function PatientDashboard() {
   const handleLogout = () => {
     disconnect()
     toast({
-      title: "Disconnected - ",
+      title: "Disconnected - WAHEGURU JI",
       description: "Wallet disconnected successfully",
     })
   }
@@ -409,7 +409,7 @@ export function PatientDashboard() {
           <Card className="bg-gradient-to-r from-green-50 to-gray-50 border-2 border-green-200">
             <CardContent className="p-6 text-center">
               <Wallet className="h-12 w-12 mx-auto mb-4 text-green-600" />
-              <h3 className="font-semibold mb-2">Connect Your Solana Wallet - </h3>
+              <h3 className="font-semibold mb-2">Connect Your Solana Wallet - WAHEGURU JI</h3>
               <p className="text-sm text-gray-600 mb-4">
                 Connect your wallet to access NFT medical reports, secure appointments, and blockchain-verified health
                 records.

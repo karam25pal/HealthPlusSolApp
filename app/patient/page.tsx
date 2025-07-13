@@ -17,7 +17,7 @@ export default function PatientPortal() {
             <h1 className="text-3xl font-bold text-gray-800 mb-2">Patient Portal</h1>
             <p className="text-gray-600 mb-6">Please connect your Solana wallet to access your medical records.</p>
             <WalletMultiButton />
-            <p className="text-xs text-gray-500 mt-8">🙏  - Your health data is safe with us. 🙏</p>
+            <p className="text-xs text-gray-500 mt-8">🙏 WAHEGURU JI - Your health data is safe with us. 🙏</p>
           </div>
         </div>
       )}

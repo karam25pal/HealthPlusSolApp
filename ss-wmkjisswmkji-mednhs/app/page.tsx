@@ -180,7 +180,7 @@ const nhsNews = [
 function DemoWalletSwitcher({ onWalletSelect }: { onWalletSelect: (wallet: string) => void }) {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-gray-900">Demo Wallets - </h3>
+      <h3 className="text-lg font-semibold text-gray-900">Demo Wallets - WAHEGURU JI</h3>
       <div className="grid gap-3">
         {DEMO_WALLETS.map((wallet, index) => (
           <Card
@@ -283,9 +283,9 @@ function AppContent() {
     try {
       const role = await getUserRole(address)
       setUserRole(role)
-      console.log(" - User role determined:", role, "for wallet:", address)
+      console.log("WAHEGURU JI - User role determined:", role, "for wallet:", address)
     } catch (error) {
-      console.error(" - Error checking user role:", error)
+      console.error("WAHEGURU JI - Error checking user role:", error)
       toast({
         title: "Error",
         description: "Failed to determine user role. Please try again.",
@@ -304,7 +304,7 @@ function AppContent() {
     }
     setUserRole(null)
     toast({
-      title: "Logged Out - ",
+      title: "Logged Out - WAHEGURU JI",
       description: "You have been successfully logged out.",
     })
   }
@@ -313,7 +313,7 @@ function AppContent() {
     setSelectedWallet(walletAddress)
     setCurrentView("connect") // Switch to connect view after selecting demo wallet
     toast({
-      title: "Demo Wallet Selected - ",
+      title: "Demo Wallet Selected - WAHEGURU JI",
       description: `Connected to demo wallet: ${walletAddress.slice(0, 8)}...`,
     })
   }
@@ -329,7 +329,7 @@ function AppContent() {
     }
 
     toast({
-      title: "Appointment Booked! ",
+      title: "Appointment Booked! WAHEGURU JI",
       description: `Appointment with ${selectedDoctor.name} scheduled for ${appointmentForm.date} at ${appointmentForm.time}`,
     })
 
@@ -348,7 +348,7 @@ function AppContent() {
     }
 
     toast({
-      title: "Message Sent! ",
+      title: "Message Sent! WAHEGURU JI",
       description: `Your message has been sent to ${selectedDoctor.name}`,
     })
 
@@ -362,7 +362,7 @@ function AppContent() {
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <Activity className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p>Loading... </p>
+          <p>Loading... WAHEGURU JI</p>
         </div>
       </div>
     )
@@ -392,7 +392,7 @@ function AppContent() {
                 <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
                   Health Plus
                 </h1>
-                <p className="text-xs text-gray-500">Blockchain Medical Records - </p>
+                <p className="text-xs text-gray-500">Blockchain Medical Records - WAHEGURU JI</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -523,7 +523,7 @@ function AppContent() {
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                 Connect with healthcare professionals, manage appointments, and access your medical records securely on
-                the blockchain.  blesses your health journey.
+                the blockchain. WAHEGURU JI blesses your health journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

@@ -17,7 +17,7 @@ export default function DoctorPortal() {
             <h1 className="text-3xl font-bold text-gray-800 mb-2">Doctor's Dashboard</h1>
             <p className="text-gray-600 mb-6">Please connect your Solana wallet to manage patient records.</p>
             <WalletMultiButton />
-            <p className="text-xs text-gray-500 mt-8">🙏  - Bless your service to others. 🙏</p>
+            <p className="text-xs text-gray-500 mt-8">🙏 WAHEGURU JI - Bless your service to others. 🙏</p>
           </div>
         </div>
       )}

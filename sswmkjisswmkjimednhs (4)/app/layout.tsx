@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Health Plus - ",
-  description: "Blockchain Medical Records on Solana - ",
+  title: "Health Plus - WAHEGURU JI",
+  description: "Blockchain Medical Records on Solana - WAHEGURU JI",
     generator: 'v0.dev'
 }
 

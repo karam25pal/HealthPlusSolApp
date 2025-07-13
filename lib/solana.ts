@@ -13,7 +13,7 @@ export const USER_ROLES = {
 
 export type UserRole = (typeof USER_ROLES)[keyof typeof USER_ROLES]
 
-// Real wallet addresses - !
+// Real wallet addresses - WAHEGURU JI!
 const DOCTOR_WALLET = "Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo"
 const PATIENT_WALLET = "DHECcpkGumi43owNpHwLRhzrnVJ7upfMA4rf9XHb5JCo"
 
@@ -63,30 +63,30 @@ umi.use(signerIdentity(dummyUmiSigner))
 // Metaplex setup
 const metaplex = new Metaplex(connection)
 
-// IPFS configuration for Pinata - 
+// IPFS configuration for Pinata - WAHEGURU JI
 const PINATA_API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY || "your_pinata_api_key"
 const PINATA_SECRET_KEY = process.env.NEXT_PUBLIC_PINATA_SECRET_KEY || "your_pinata_secret_key"
 const PINATA_GATEWAY = "https://gateway.pinata.cloud/ipfs/"
 
 // Enhanced function to get user role with specific wallets
 export async function getUserRole(walletAddress: string): Promise<UserRole> {
-  console.log(" - Checking wallet role:", walletAddress)
+  console.log("WAHEGURU JI - Checking wallet role:", walletAddress)
 
   // Check demo wallets first
   const demoWallet = DEMO_WALLETS.find((w) => w.address === walletAddress)
   if (demoWallet) {
-    console.log(" - Demo wallet detected:", demoWallet.name, demoWallet.role)
+    console.log("WAHEGURU JI - Demo wallet detected:", demoWallet.name, demoWallet.role)
     return demoWallet.role as UserRole
   }
 
   // Check specific wallet addresses
   if (walletAddress === DOCTOR_WALLET) {
-    console.log(" - Doctor wallet detected!")
+    console.log("WAHEGURU JI - Doctor wallet detected!")
     return USER_ROLES.DOCTOR
   }
 
   if (walletAddress === PATIENT_WALLET) {
-    console.log(" - Patient wallet detected!")
+    console.log("WAHEGURU JI - Patient wallet detected!")
     return USER_ROLES.PATIENT
   }
 
@@ -106,7 +106,7 @@ export async function getUserRole(walletAddress: string): Promise<UserRole> {
 
 // Real IPFS upload function using Pinata API
 export async function uploadToIPFS(file: File): Promise<string> {
-  console.log(" - Uploading file to Pinata IPFS:", file.name, "Size:", file.size, "bytes")
+  console.log("WAHEGURU JI - Uploading file to Pinata IPFS:", file.name, "Size:", file.size, "bytes")
 
   try {
     // Validate file size
@@ -116,11 +116,11 @@ export async function uploadToIPFS(file: File): Promise<string> {
 
     // Check if Pinata keys are configured
     if (!PINATA_API_KEY || !PINATA_SECRET_KEY || PINATA_API_KEY === "your_pinata_api_key") {
-      console.log(" - Pinata keys not configured, using mock upload")
+      console.log("WAHEGURU JI - Pinata keys not configured, using mock upload")
       // Simulate upload for demo
       await new Promise((resolve) => setTimeout(resolve, 2000))
       const mockHash = `QmWAHEGURUMock${Date.now()}${Math.random().toString(36).substr(2, 15)}`
-      console.log(" - Mock file uploaded:", mockHash)
+      console.log("WAHEGURU JI - Mock file uploaded:", mockHash)
       return mockHash
     }
 
@@ -139,7 +139,7 @@ export async function uploadToIPFS(file: File): Promise<string> {
       }),
     )
 
-    console.log(" - Uploading to Pinata...")
+    console.log("WAHEGURU JI - Uploading to Pinata...")
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -151,33 +151,33 @@ export async function uploadToIPFS(file: File): Promise<string> {
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error(" - Pinata upload error:", errorText)
+      console.error("WAHEGURU JI - Pinata upload error:", errorText)
       throw new Error(`Failed to upload file to IPFS: ${errorText}`)
     }
 
     const { IpfsHash } = await response.json()
-    console.log(" - File uploaded to Pinata IPFS successfully:", IpfsHash)
-    console.log(" - Pinata Gateway URL:", `${PINATA_GATEWAY}${IpfsHash}`)
+    console.log("WAHEGURU JI - File uploaded to Pinata IPFS successfully:", IpfsHash)
+    console.log("WAHEGURU JI - Pinata Gateway URL:", `${PINATA_GATEWAY}${IpfsHash}`)
 
     return IpfsHash
   } catch (error) {
-    console.error(" - Error uploading to Pinata:", error)
+    console.error("WAHEGURU JI - Error uploading to Pinata:", error)
     throw error
   }
 }
 
 // Upload JSON metadata to IPFS using Pinata
 export async function uploadMetadataToIPFS(metadata: any): Promise<string> {
-  console.log(" - Uploading metadata to Pinata IPFS")
+  console.log("WAHEGURU JI - Uploading metadata to Pinata IPFS")
 
   try {
     // Check if Pinata keys are configured
     if (!PINATA_API_KEY || !PINATA_SECRET_KEY || PINATA_API_KEY === "your_pinata_api_key") {
-      console.log(" - Pinata keys not configured, using mock upload")
+      console.log("WAHEGURU JI - Pinata keys not configured, using mock upload")
       // Simulate upload for demo
       await new Promise((resolve) => setTimeout(resolve, 1500))
       const mockHash = `QmWAHEGURUMetaMock${Date.now()}${Math.random().toString(36).substr(2, 15)}`
-      console.log(" - Mock metadata uploaded:", mockHash)
+      console.log("WAHEGURU JI - Mock metadata uploaded:", mockHash)
       return mockHash
     }
 
@@ -194,7 +194,7 @@ export async function uploadMetadataToIPFS(metadata: any): Promise<string> {
       },
     })
 
-    console.log(" - Uploading metadata to Pinata...")
+    console.log("WAHEGURU JI - Uploading metadata to Pinata...")
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -207,17 +207,17 @@ export async function uploadMetadataToIPFS(metadata: any): Promise<string> {
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error(" - Pinata metadata upload error:", errorText)
+      console.error("WAHEGURU JI - Pinata metadata upload error:", errorText)
       throw new Error(`Failed to pin JSON to IPFS: ${errorText}`)
     }
 
     const { IpfsHash } = await response.json()
-    console.log(" - Metadata uploaded to Pinata IPFS successfully:", IpfsHash)
-    console.log(" - Metadata URL:", `${PINATA_GATEWAY}${IpfsHash}`)
+    console.log("WAHEGURU JI - Metadata uploaded to Pinata IPFS successfully:", IpfsHash)
+    console.log("WAHEGURU JI - Metadata URL:", `${PINATA_GATEWAY}${IpfsHash}`)
 
     return IpfsHash
   } catch (error) {
-    console.error(" - Error uploading metadata to Pinata:", error)
+    console.error("WAHEGURU JI - Error uploading metadata to Pinata:", error)
     throw error
   }
 }
@@ -225,7 +225,7 @@ export async function uploadMetadataToIPFS(metadata: any): Promise<string> {
 // Check if IPFS file is accessible
 export async function checkIPFSFileAccess(ipfsHash: string): Promise<boolean> {
   try {
-    console.log(" - Checking IPFS file access:", ipfsHash)
+    console.log("WAHEGURU JI - Checking IPFS file access:", ipfsHash)
 
     const url = `${PINATA_GATEWAY}${ipfsHash}`
 
@@ -241,18 +241,18 @@ export async function checkIPFSFileAccess(ipfsHash: string): Promise<boolean> {
       clearTimeout(timeoutId)
 
       const isAccessible = response.ok
-      console.log(" - File accessibility check:", isAccessible ? "ACCESSIBLE" : "NOT ACCESSIBLE")
+      console.log("WAHEGURU JI - File accessibility check:", isAccessible ? "ACCESSIBLE" : "NOT ACCESSIBLE")
       return isAccessible
     } catch (fetchError) {
       clearTimeout(timeoutId)
-      console.log(" - File not accessible via network check")
+      console.log("WAHEGURU JI - File not accessible via network check")
 
       // For demo purposes, return true for mock hashes
       const isMockHash = ipfsHash.includes("WAHEGURU") || ipfsHash.includes("Mock")
       return isMockHash
     }
   } catch (error) {
-    console.error(" - Error checking file access:", error)
+    console.error("WAHEGURU JI - Error checking file access:", error)
     return false
   }
 }
@@ -260,10 +260,10 @@ export async function checkIPFSFileAccess(ipfsHash: string): Promise<boolean> {
 // Fetch content from Pinata IPFS with proper error handling
 export async function fetchFromPinataIPFS(ipfsHash: string): Promise<any> {
   try {
-    console.log(" - Fetching content from Pinata IPFS:", ipfsHash)
+    console.log("WAHEGURU JI - Fetching content from Pinata IPFS:", ipfsHash)
 
     const url = `${PINATA_GATEWAY}${ipfsHash}`
-    console.log(" - Pinata URL:", url)
+    console.log("WAHEGURU JI - Pinata URL:", url)
 
     // Check if file is accessible first
     const isAccessible = await checkIPFSFileAccess(ipfsHash)
@@ -289,7 +289,7 @@ export async function fetchFromPinataIPFS(ipfsHash: string): Promise<any> {
       // For demo purposes, return mock data with proper structure
       const mockContent = {
         success: true,
-        data: "Medical report content from Pinata IPFS - ",
+        data: "Medical report content from Pinata IPFS - WAHEGURU JI",
         url: url,
         hash: ipfsHash,
         gateway: "Pinata",
@@ -298,14 +298,14 @@ export async function fetchFromPinataIPFS(ipfsHash: string): Promise<any> {
         contentType: response.headers.get("content-type") || "application/octet-stream",
       }
 
-      console.log(" - Content fetched successfully from Pinata")
+      console.log("WAHEGURU JI - Content fetched successfully from Pinata")
       return mockContent
     } catch (fetchError) {
       clearTimeout(timeoutId)
       throw fetchError
     }
   } catch (error) {
-    console.error(" - Error fetching from Pinata IPFS:", error)
+    console.error("WAHEGURU JI - Error fetching from Pinata IPFS:", error)
     return {
       success: false,
       error: error.message,
@@ -325,7 +325,7 @@ export async function getWalletBalance(walletAddress: string): Promise<number> {
     const balance = await connection.getBalance(publicKey)
     return balance / LAMPORTS_PER_SOL
   } catch (error) {
-    console.error(" - Error getting balance:", error)
+    console.error("WAHEGURU JI - Error getting balance:", error)
     return 0
   }
 }
@@ -343,7 +343,7 @@ export async function requestDevnetAirdrop(walletAddress: string, amount = 1): P
     })
     return airdropSignature
   } catch (error: any) {
-    console.error(" - Airdrop failed:", error)
+    console.error("WAHEGURU JI - Airdrop failed:", error)
     if (error.message && (error.message.includes("429") || error.message.toLowerCase().includes("airdrop limit"))) {
       throw new Error("Airdrop limit reached. Please visit faucet.solana.com for more test SOL.")
     }
@@ -385,7 +385,7 @@ export class SolanaNFTManager {
     },
     walletAdapter?: any,
   ) {
-    console.log(" - Creating medical report NFT on Solana blockchain")
+    console.log("WAHEGURU JI - Creating medical report NFT on Solana blockchain")
 
     let transactionSignature: string | undefined = undefined
 
@@ -394,7 +394,7 @@ export class SolanaNFTManager {
       let pdfHash = null
       let pdfUrl = null
       if (reportData.pdfFile) {
-        console.log(" - Step 1: Uploading PDF to IPFS...")
+        console.log("WAHEGURU JI - Step 1: Uploading PDF to IPFS...")
         pdfHash = await uploadToIPFS(reportData.pdfFile)
         pdfUrl = `${PINATA_GATEWAY}${pdfHash}`
       }
@@ -404,7 +404,7 @@ export class SolanaNFTManager {
       const patientName = patient ? patient.name : "Unknown Patient"
 
       // Step 3: Create comprehensive NFT metadata
-      console.log(" - Step 2: Creating NFT metadata...")
+      console.log("WAHEGURU JI - Step 2: Creating NFT metadata...")
       const metadata = {
         name: reportData.title,
         symbol: "MEDNFT",
@@ -455,20 +455,20 @@ export class SolanaNFTManager {
       }
 
       // Step 4: Upload metadata to IPFS
-      console.log(" - Step 3: Uploading metadata to Pinata IPFS...")
+      console.log("WAHEGURU JI - Step 3: Uploading metadata to Pinata IPFS...")
       const metadataHash = await uploadMetadataToIPFS(metadata)
       const metadataUri = `${PINATA_GATEWAY}${metadataHash}`
 
       // PRE-CHECK – is the doctor’s wallet funded?
       const solBalance = await this.getSolBalance(doctorWallet)
       if (solBalance < 0.01) {
-        console.warn(" – Wallet has insufficient SOL (", solBalance, "), switching to simulated mint.")
+        console.warn("WAHEGURU JI – Wallet has insufficient SOL (", solBalance, "), switching to simulated mint.")
         // skip the real-chain branch by faking walletAdapter.connected = false
         walletAdapter = undefined
       }
 
       // Step 5: Create NFT on Solana blockchain
-      console.log(" - Step 4: Minting NFT on Solana blockchain...")
+      console.log("WAHEGURU JI - Step 4: Minting NFT on Solana blockchain...")
 
       let nftResult
       if (walletAdapter && walletAdapter.connected) {
@@ -486,9 +486,9 @@ export class SolanaNFTManager {
 
           nftResult = nft
           transactionSignature = response.signature
-          console.log(" - Real NFT created on blockchain!")
+          console.log("WAHEGURU JI - Real NFT created on blockchain!")
         } catch (error: any) {
-          console.error(" - Real NFT creation failed, falling back to simulation.")
+          console.error("WAHEGURU JI - Real NFT creation failed, falling back to simulation.")
           // If it's a SendTransactionError, dump logs for easier diagnosis
           if (error && typeof error === "object") {
             try {
@@ -505,7 +505,7 @@ export class SolanaNFTManager {
         }
       } else {
         // Simulate NFT creation for demo
-        console.log(" - Simulating NFT creation (no wallet connected)")
+        console.log("WAHEGURU JI - Simulating NFT creation (no wallet connected)")
         await new Promise((resolve) => setTimeout(resolve, 3000))
         transactionSignature = this.generateValidSolanaSignature()
       }
@@ -540,13 +540,13 @@ export class SolanaNFTManager {
       // Add to store
       nftReportsStore.push(nftReport)
 
-      console.log(" - NFT Report created successfully on Solana!")
+      console.log("WAHEGURU JI - NFT Report created successfully on Solana!")
       console.log("Transaction:", transactionSignature)
       console.log("Mint Address:", mintAddress)
 
       return nftReport
     } catch (error: any) {
-      console.error(" - Error creating NFT:", error)
+      console.error("WAHEGURU JI - Error creating NFT:", error)
       if (!transactionSignature) {
         // only re-throw if we never produced a simulated (or real) NFT
         throw new Error(`Failed to create NFT: ${error.message}`)
@@ -579,7 +579,7 @@ export class SolanaNFTManager {
   // Get NFT details from blockchain
   async getNFTDetails(mintAddress: string) {
     try {
-      console.log(" - Fetching NFT details from blockchain:", mintAddress)
+      console.log("WAHEGURU JI - Fetching NFT details from blockchain:", mintAddress)
 
       // Try to get real NFT details
       try {
@@ -587,7 +587,7 @@ export class SolanaNFTManager {
         const nft = await this.metaplex.nfts().findByMint({ mintAddress: mint })
 
         if (nft) {
-          console.log(" - Real NFT found on blockchain")
+          console.log("WAHEGURU JI - Real NFT found on blockchain")
           return {
             ...nft,
             onChain: true,
@@ -596,14 +596,14 @@ export class SolanaNFTManager {
           }
         }
       } catch (blockchainError) {
-        console.log(" - NFT not found on blockchain, checking local store")
+        console.log("WAHEGURU JI - NFT not found on blockchain, checking local store")
       }
 
       // Fall back to local store
       const nft = nftReportsStore.find((n) => n.mint === mintAddress)
 
       if (nft) {
-        console.log(" - NFT found in local store")
+        console.log("WAHEGURU JI - NFT found in local store")
         return {
           ...nft,
           onChain: false,
@@ -614,7 +614,7 @@ export class SolanaNFTManager {
 
       return null
     } catch (error) {
-      console.error(" - Error getting NFT details:", error)
+      console.error("WAHEGURU JI - Error getting NFT details:", error)
       return null
     }
   }
@@ -622,28 +622,28 @@ export class SolanaNFTManager {
   // Verify NFT authenticity
   async verifyNFTAuthenticity(mintAddress: string): Promise<boolean> {
     try {
-      console.log(" - Verifying NFT authenticity:", mintAddress)
+      console.log("WAHEGURU JI - Verifying NFT authenticity:", mintAddress)
 
       // Try blockchain verification first
       try {
         const mint = new PublicKey(mintAddress)
         const nft = await this.metaplex.nfts().findByMint({ mintAddress: mint })
         if (nft) {
-          console.log(" - NFT verified on blockchain: AUTHENTIC")
+          console.log("WAHEGURU JI - NFT verified on blockchain: AUTHENTIC")
           return true
         }
       } catch (blockchainError) {
-        console.log(" - Blockchain verification failed, checking local store")
+        console.log("WAHEGURU JI - Blockchain verification failed, checking local store")
       }
 
       // Fall back to local store verification
       const nft = nftReportsStore.find((n) => n.mint === mintAddress)
       const isValid = !!nft && nft.blockchainConfirmed
 
-      console.log(" - NFT verification result:", isValid ? "AUTHENTIC" : "INVALID")
+      console.log("WAHEGURU JI - NFT verification result:", isValid ? "AUTHENTIC" : "INVALID")
       return isValid
     } catch (error) {
-      console.error(" - Error verifying NFT:", error)
+      console.error("WAHEGURU JI - Error verifying NFT:", error)
       return false
     }
   }
@@ -651,7 +651,7 @@ export class SolanaNFTManager {
 
 // Get patient's medical NFTs using real Solana/Metaplex queries
 export async function getPatientMedicalNFTs(walletAddress: string) {
-  console.log(" - Fetching medical NFTs for patient:", walletAddress)
+  console.log("WAHEGURU JI - Fetching medical NFTs for patient:", walletAddress)
 
   try {
     // Try to get real NFTs from blockchain
@@ -661,11 +661,11 @@ export async function getPatientMedicalNFTs(walletAddress: string) {
       })
 
       if (assets.items && assets.items.length > 0) {
-        console.log(` - Found ${assets.items.length} real NFTs on blockchain`)
+        console.log(`WAHEGURU JI - Found ${assets.items.length} real NFTs on blockchain`)
         return assets.items
       }
     } catch (blockchainError) {
-      console.log(" - Blockchain query failed, using local store:", blockchainError.message)
+      console.log("WAHEGURU JI - Blockchain query failed, using local store:", blockchainError.message)
     }
 
     // Fall back to local store
@@ -678,10 +678,10 @@ export async function getPatientMedicalNFTs(walletAddress: string) {
       }
     }
 
-    console.log(` - Found ${patientNFTs.length} medical NFT reports for patient`)
+    console.log(`WAHEGURU JI - Found ${patientNFTs.length} medical NFT reports for patient`)
     return patientNFTs
   } catch (error) {
-    console.error(" - Error fetching NFTs:", error)
+    console.error("WAHEGURU JI - Error fetching NFTs:", error)
     return []
   }
 }
@@ -689,7 +689,7 @@ export async function getPatientMedicalNFTs(walletAddress: string) {
 // ────────────────────────────────────────────────────────────
 // Fetch ALL NFT reports created by a specific doctor
 export async function getAllReportsForDoctor(doctorWallet: string) {
-  console.log(" - Fetching all reports for doctor:", doctorWallet)
+  console.log("WAHEGURU JI - Fetching all reports for doctor:", doctorWallet)
 
   // nftReportsStore is our in-memory mock DB declared above
   const doctorReports = nftReportsStore.filter((report) => report.doctorWallet === doctorWallet)
@@ -708,9 +708,9 @@ const nftReportsStore: any[] = [
     patientWallet: PATIENT_WALLET,
     doctorWallet: DOCTOR_WALLET,
     metadata: {
-      name: "Blood Test Results -  (Pinata IPFS)",
+      name: "Blood Test Results - WAHEGURU JI (Pinata IPFS)",
       description:
-        "Complete blood count and lipid panel results stored on Pinata IPFS. All values within normal range. 's blessings for good health.",
+        "Complete blood count and lipid panel results stored on Pinata IPFS. All values within normal range. WAHEGURU JI's blessings for good health.",
       image: "https://i.imgur.com/mN4D32Z.png",
       external_url: `${PINATA_GATEWAY}QmWAHEGURUPinataPDF123456789`,
       attributes: [
@@ -787,7 +787,7 @@ export async function createMedicalReportNFTWithPDF(
   },
   walletAdapter?: any,
 ) {
-  console.log(" - Starting complete NFT creation process...")
+  console.log("WAHEGURU JI - Starting complete NFT creation process...")
 
   try {
     const nftManager = new SolanaNFTManager()
@@ -802,12 +802,12 @@ export async function createMedicalReportNFTWithPDF(
       report: nftReport,
     })
 
-    console.log(" - Complete NFT creation process finished successfully!")
+    console.log("WAHEGURU JI - Complete NFT creation process finished successfully!")
     console.log("Patient can now view their medical NFT report")
 
     return nftReport
   } catch (error) {
-    console.error(" - Error in NFT creation process:", error)
+    console.error("WAHEGURU JI - Error in NFT creation process:", error)
     throw error
   }
 }
@@ -830,7 +830,7 @@ export class NotificationService {
   }
 
   static emit(event: string, data: any) {
-    console.log(" - Notification:", event, data)
+    console.log("WAHEGURU JI - Notification:", event, data)
     if (this.listeners[event]) {
       this.listeners[event].forEach((callback) => callback(data))
     }
@@ -846,7 +846,7 @@ export async function createAppointment(appointmentData: {
   type: string
   notes: string
 }) {
-  console.log(" - Creating appointment:", appointmentData)
+  console.log("WAHEGURU JI - Creating appointment:", appointmentData)
 
   const patient = patientsDatabase.find((p) => p.wallet === appointmentData.patientWallet)
   const patientName = patient ? patient.name : "Unknown Patient"
@@ -862,12 +862,12 @@ export async function createAppointment(appointmentData: {
   appointmentsStore.push(appointment)
   await new Promise((resolve) => setTimeout(resolve, 1500))
 
-  console.log(" - Appointment created:", appointment)
+  console.log("WAHEGURU JI - Appointment created:", appointment)
   return appointment
 }
 
 export async function approveAppointment(appointmentId: string) {
-  console.log(" - Approving appointment:", appointmentId)
+  console.log("WAHEGURU JI - Approving appointment:", appointmentId)
 
   const appointment = appointmentsStore.find((apt) => apt.id === appointmentId)
   if (appointment) {
@@ -880,7 +880,7 @@ export async function approveAppointment(appointmentId: string) {
 }
 
 export async function rejectAppointment(appointmentId: string, reason?: string) {
-  console.log(" - Rejecting appointment:", appointmentId)
+  console.log("WAHEGURU JI - Rejecting appointment:", appointmentId)
 
   const appointment = appointmentsStore.find((apt) => apt.id === appointmentId)
   if (appointment) {
@@ -894,21 +894,21 @@ export async function rejectAppointment(appointmentId: string, reason?: string) 
 }
 
 export async function getDoctorAppointments(doctorWallet: string) {
-  console.log(" - Fetching doctor appointments:", doctorWallet)
+  console.log("WAHEGURU JI - Fetching doctor appointments:", doctorWallet)
   const doctorAppointments = appointmentsStore.filter((apt) => apt.doctorWallet === doctorWallet)
   await new Promise((resolve) => setTimeout(resolve, 500))
   return doctorAppointments
 }
 
 export async function getPatientAppointments(patientWallet: string) {
-  console.log(" - Fetching patient appointments:", patientWallet)
+  console.log("WAHEGURU JI - Fetching patient appointments:", patientWallet)
   const patientAppointments = appointmentsStore.filter((apt) => apt.patientWallet === patientWallet)
   await new Promise((resolve) => setTimeout(resolve, 500))
   return patientAppointments
 }
 
 export async function getDoctorPatients(doctorWallet: string) {
-  console.log(" - Fetching doctor's patients:", doctorWallet)
+  console.log("WAHEGURU JI - Fetching doctor's patients:", doctorWallet)
   await new Promise((resolve) => setTimeout(resolve, 500))
   return patientsDatabase
 }
@@ -933,28 +933,28 @@ export { DOCTOR_WALLET, PATIENT_WALLET }
 // Verify NFT on blockchain
 export async function verifyNFTOnBlockchain(mintAddress: string): Promise<boolean> {
   try {
-    console.log(" - Verifying NFT on blockchain:", mintAddress)
+    console.log("WAHEGURU JI - Verifying NFT on blockchain:", mintAddress)
 
     // Try blockchain verification first
     try {
       const mint = new PublicKey(mintAddress)
       const nft = await metaplex.nfts().findByMint({ mintAddress: mint })
       if (nft) {
-        console.log(" - NFT verified on blockchain: AUTHENTIC")
+        console.log("WAHEGURU JI - NFT verified on blockchain: AUTHENTIC")
         return true
       }
     } catch (blockchainError) {
-      console.log(" - Blockchain verification failed, checking local store")
+      console.log("WAHEGURU JI - Blockchain verification failed, checking local store")
     }
 
     // Fall back to local store verification
     const nft = nftReportsStore.find((n) => n.mint === mintAddress)
     const isValid = !!nft && nft.blockchainConfirmed
 
-    console.log(" - NFT verification result:", isValid ? "AUTHENTIC" : "INVALID")
+    console.log("WAHEGURU JI - NFT verification result:", isValid ? "AUTHENTIC" : "INVALID")
     return isValid
   } catch (error) {
-    console.error(" - Error verifying NFT:", error)
+    console.error("WAHEGURU JI - Error verifying NFT:", error)
     return false
   }
 }
@@ -962,7 +962,7 @@ export async function verifyNFTOnBlockchain(mintAddress: string): Promise<boolea
 // Get transaction details
 export async function getTransactionDetails(signature: string) {
   try {
-    console.log(" - Getting transaction details:", signature)
+    console.log("WAHEGURU JI - Getting transaction details:", signature)
 
     // Simulate getting transaction details
     await new Promise((resolve) => setTimeout(resolve, 500))
@@ -977,21 +977,21 @@ export async function getTransactionDetails(signature: string) {
       explorer: `https://explorer.solana.com/tx/${signature}?cluster=${SOLANA_NETWORK}`,
     }
   } catch (error) {
-    console.error(" - Error getting transaction details:", error)
+    console.error("WAHEGURU JI - Error getting transaction details:", error)
     return null
   }
 }
 
 // Get all NFT reports (for admin/overview)
 export async function getAllNFTReports() {
-  console.log(" - Fetching all NFT reports")
+  console.log("WAHEGURU JI - Fetching all NFT reports")
   await new Promise((resolve) => setTimeout(resolve, 300))
   return nftReportsStore
 }
 
 // Search NFT reports
 export async function searchNFTReports(query: string, walletAddress?: string) {
-  console.log(" - Searching NFT reports:", query)
+  console.log("WAHEGURU JI - Searching NFT reports:", query)
 
   await new Promise((resolve) => setTimeout(resolve, 500))
 
@@ -1038,7 +1038,7 @@ export async function updateReportStatus(reportId: string, status: string) {
 
 // Transfer SOL between wallets
 export async function transferSOL(fromWallet: string, toWallet: string, amount: number): Promise<string> {
-  console.log(" - Transferring SOL:", { fromWallet, toWallet, amount })
+  console.log("WAHEGURU JI - Transferring SOL:", { fromWallet, toWallet, amount })
 
   // Generate valid Solana signature
   const chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
@@ -1049,13 +1049,13 @@ export async function transferSOL(fromWallet: string, toWallet: string, amount: 
 
   await new Promise((resolve) => setTimeout(resolve, 2000))
 
-  console.log(" - SOL transfer completed:", signature)
+  console.log("WAHEGURU JI - SOL transfer completed:", signature)
   return signature
 }
 
 // Create medical NFT (wrapper function for compatibility)
 export async function createMedicalNFT(report: any, patientWalletAddress: string, doctorWallet: any, reportFile: File) {
-  console.log(" - Creating medical NFT (compatibility wrapper)")
+  console.log("WAHEGURU JI - Creating medical NFT (compatibility wrapper)")
 
   const reportData = {
     title: report.title,
@@ -1085,7 +1085,7 @@ const appointmentsStore: any[] = [
     time: "10:00 AM",
     type: "Consultation",
     status: "pending",
-    notes: "Regular checkup - ",
+    notes: "Regular checkup - WAHEGURU JI",
     createdAt: new Date().toISOString(),
   },
   {

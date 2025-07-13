@@ -285,7 +285,7 @@ function MedicalAppHomepage() {
   const handleLogout = () => {
     disconnect()
     toast({
-      title: "Disconnected - ",
+      title: "Disconnected - WAHEGURU JI",
       description: "Wallet disconnected successfully",
     })
   }
@@ -445,7 +445,7 @@ function MedicalAppHomepage() {
           <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200">
             <CardContent className="p-6 text-center">
               <Wallet className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="font-semibold mb-2">Connect Your Solana Wallet - </h3>
+              <h3 className="font-semibold mb-2">Connect Your Solana Wallet - WAHEGURU JI</h3>
               <p className="text-sm text-gray-600 mb-4">
                 Connect your wallet to access NFT medical reports, secure appointments, and blockchain-verified health
                 records.
@@ -1103,7 +1103,7 @@ function RoleSelectionPage() {
             <Stethoscope className="h-8 w-8 text-white" />
           </div>
           <CardTitle className="text-2xl font-bold bg-gradient-to-r from-black to-red-600 bg-clip-text text-transparent">
-             Health Portal
+            WAHEGURU JI Health Portal
           </CardTitle>
           <CardDescription>Securely manage medical records on the blockchain.</CardDescription>
         </CardHeader>

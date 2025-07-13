@@ -78,7 +78,7 @@ RECOMMENDATIONS:
 • Follow-up in 6 months
 • Maintain balanced diet and regular exercise
 
- - Blessed with good health! 🙏`,
+WAHEGURU JI - Blessed with good health! 🙏`,
     remarks:
       "Excellent health parameters. Patient shows optimal blood chemistry values. Patient shows optimal blood chemistry values. Continue preventive care approach.",
     type: "Lab Report",
@@ -110,7 +110,7 @@ RECOMMENDATIONS:
 • Follow-up if symptoms persist
 • Annual screening recommended
 
-'s protection over respiratory health! 🙏`,
+WAHEGURU JI's protection over respiratory health! 🙏`,
     remarks: "Clear chest imaging. Seasonal allergy management recommended. No structural concerns identified.",
     type: "Radiology Report",
   },
@@ -141,7 +141,7 @@ PLAN:
 • Dietary consultation recommended
 • Follow-up in 3 months
 
- guides us toward better health management! 🙏`,
+WAHEGURU JI guides us toward better health management! 🙏`,
     remarks:
       "Diabetes management progressing well. Medication adjustment and lifestyle modifications will optimize control.",
     type: "Follow-up Report",
@@ -190,7 +190,7 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
   // Set up real-time notifications
   useEffect(() => {
     const handleReportCreated = (data: any) => {
-      console.log(" - New report created notification:", data)
+      console.log("WAHEGURU JI - New report created notification:", data)
       loadReports()
 
       // Add to test results if this was a test
@@ -221,7 +221,7 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
   const loadDashboardData = async () => {
     try {
       setIsLoading(true)
-      console.log(" - Loading dashboard data for doctor:", walletAddress)
+      console.log("WAHEGURU JI - Loading dashboard data for doctor:", walletAddress)
 
       const [patientsData, appointmentsData, reportsData] = await Promise.all([
         getDoctorPatients(walletAddress),
@@ -233,9 +233,9 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
       setAppointments(appointmentsData)
       setReports(reportsData)
 
-      console.log(" - Dashboard data loaded successfully")
+      console.log("WAHEGURU JI - Dashboard data loaded successfully")
     } catch (error) {
-      console.error(" - Error loading dashboard data:", error)
+      console.error("WAHEGURU JI - Error loading dashboard data:", error)
       toast({
         title: "Error Loading Data",
         description: "Failed to load dashboard data. Please try again.",
@@ -296,7 +296,7 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
         pdfFile: reportForm.pdfFile || undefined,
       })
 
-      console.log(" - NFT Report created:", nftReport)
+      console.log("WAHEGURU JI - NFT Report created:", nftReport)
 
       toast({
         title: "NFT Report Created Successfully! 🎉",
@@ -315,7 +315,7 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
       // Reload reports
       await loadReports()
     } catch (error) {
-      console.error(" - Error creating NFT report:", error)
+      console.error("WAHEGURU JI - Error creating NFT report:", error)
       toast({
         title: "Error Creating NFT Report",
         description: error.message || "Failed to create NFT report. Please try again.",
@@ -350,7 +350,7 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
       const testReport = TEST_REPORTS[selectedTestReport]
       const testPatient = patients[0] // Use first patient for test
 
-      console.log(" - Starting test NFT creation workflow")
+      console.log("WAHEGURU JI - Starting test NFT creation workflow")
       console.log("Test Report:", testReport.title)
       console.log("Test Patient:", testPatient.name)
 
@@ -385,10 +385,10 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
         description: `NFT created, verified, and transferred to ${testPatient.name}`,
       })
 
-      console.log(" - Test workflow completed successfully!")
+      console.log("WAHEGURU JI - Test workflow completed successfully!")
       console.log("Test Results:", testResult)
     } catch (error) {
-      console.error(" - Test workflow failed:", error)
+      console.error("WAHEGURU JI - Test workflow failed:", error)
       toast({
         title: "Test Workflow Failed ❌",
         description: error.message || "Test workflow encountered an error.",
@@ -545,7 +545,7 @@ export function EnhancedDoctorDashboard({ walletAddress, doctorName }: DoctorDas
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <Activity className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p>Loading dashboard... </p>
+          <p>Loading dashboard... WAHEGURU JI</p>
         </div>
       </div>
     )

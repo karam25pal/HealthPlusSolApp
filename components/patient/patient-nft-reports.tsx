@@ -49,7 +49,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
   useEffect(() => {
     const handleNewReport = (data: any) => {
       if (data.patientWallet === walletAddress) {
-        console.log(" - New NFT report received:", data)
+        console.log("WAHEGURU JI - New NFT report received:", data)
         loadNFTReports()
         toast({
           title: "New Medical Report Received! 🎉",
@@ -68,7 +68,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
   const loadNFTReports = async () => {
     setIsLoading(true)
     try {
-      console.log(" - Loading NFT reports for patient:", walletAddress)
+      console.log("WAHEGURU JI - Loading NFT reports for patient:", walletAddress)
       // This function attempts to fetch real NFTs from Solana blockchain first
       const nftData = await getPatientMedicalNFTs(walletAddress)
       setNftReports(nftData)
@@ -82,9 +82,9 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
       }
       setFileAccessStatus(accessStatus)
 
-      console.log(" - NFT reports loaded successfully")
+      console.log("WAHEGURU JI - NFT reports loaded successfully")
     } catch (error) {
-      console.error(" - Error loading NFT reports:", error)
+      console.error("WAHEGURU JI - Error loading NFT reports:", error)
       toast({
         title: "Error Loading Reports",
         description: "Failed to load medical NFT reports. Please try again.",
@@ -189,7 +189,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
     if (!report.ipfsHash) {
       toast({
         title: "No IPFS File",
-        description: "! No IPFS file available.",
+        description: "WAHEGURU JI! No IPFS file available.",
         variant: "destructive",
       })
       return
@@ -206,15 +206,15 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
       } else {
         toast({
           title: "File Unavailable",
-          description: "! File is not accessible on IPFS network. Please contact your doctor.",
+          description: "WAHEGURU JI! File is not accessible on IPFS network. Please contact your doctor.",
           variant: "destructive",
         })
       }
     } catch (error) {
-      console.error(" - Error checking file access:", error)
+      console.error("WAHEGURU JI - Error checking file access:", error)
       toast({
         title: "Access Error",
-        description: "! Error accessing file.",
+        description: "WAHEGURU JI! Error accessing file.",
         variant: "destructive",
       })
     } finally {
@@ -361,21 +361,51 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
                           </AlertDialogTrigger>
                           <AlertDialogContent>
                             <AlertDialogHeader>
-                              <AlertDialogTitle>Export and View Report</AlertDialogTitle>
-                              <AlertDialogDescription>
-                                This will download the report's data as a JSON file before showing the full details. Do
-                                you want to continue?
+                              <AlertDialogTitle>Terms and Conditions</AlertDialogTitle>
+                              <AlertDialogDescription className="h-64 overflow-y-auto text-sm text-gray-600 pr-4">
+                                <p className="font-bold mb-2">
+                                  Please read and accept the terms and conditions before viewing your medical report.
+                                </p>
+                                <p className="mb-2">
+                                  By accessing this medical report, you acknowledge and agree to the following:
+                                </p>
+                                <ul className="list-disc list-inside space-y-2">
+                                  <li>
+                                    This information is confidential and intended only for the patient to whom it is
+                                    addressed.
+                                  </li>
+                                  <li>
+                                    You are responsible for maintaining the confidentiality of this report. Do not share
+                                    your wallet's private keys or this report with unauthorized individuals.
+                                  </li>
+                                  <li>
+                                    The medical data is stored as a Non-Fungible Token (NFT) on the Solana blockchain
+                                    and its associated file is stored on the InterPlanetary File System (IPFS). While
+                                    these technologies provide a high degree of security and immutability, no system is
+                                    entirely immune to risk.
+                                  </li>
+                                  <li>
+                                    This digital report is a representation of your medical record. For official
+                                    purposes, please consult your healthcare provider.
+                                  </li>
+                                  <li>
+                                    The creators of this platform are not liable for any misuse, loss, or unauthorized
+                                    access to your medical data resulting from your actions or negligence.
+                                  </li>
+                                  <li>
+                                    You agree to use this information for personal, informational purposes only and not
+                                    for any unlawful activity.
+                                  </li>
+                                </ul>
+                                <p className="mt-4">
+                                  Clicking "Accept" signifies your understanding and agreement to these terms.
+                                </p>
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction
-                                onClick={() => {
-                                  downloadReportData(report)
-                                  setSelectedReport(report)
-                                }}
-                              >
-                                Export & View
+                              <AlertDialogCancel>Decline</AlertDialogCancel>
+                              <AlertDialogAction onClick={() => setSelectedReport(report)}>
+                                Accept & View Report
                               </AlertDialogAction>
                             </AlertDialogFooter>
                           </AlertDialogContent>

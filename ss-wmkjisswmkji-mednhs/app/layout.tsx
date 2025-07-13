@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Health Plus -  Medical App",
-  description: "Blockchain-powered medical records and NFT reports on Solana - ",
+  title: "Health Plus - WAHEGURU JI Medical App",
+  description: "Blockchain-powered medical records and NFT reports on Solana - WAHEGURU JI",
 }
 
 export default function RootLayout({

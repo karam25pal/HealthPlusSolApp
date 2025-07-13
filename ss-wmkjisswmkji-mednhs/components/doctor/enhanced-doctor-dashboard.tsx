@@ -107,17 +107,17 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
   const loadDashboardData = async () => {
     try {
       setIsLoading(true)
-      console.log(" - Loading doctor dashboard data")
+      console.log("WAHEGURU JI - Loading doctor dashboard data")
 
       // Load appointments
       const appointmentsData = await getDoctorAppointments(walletAddress)
       setAppointments(appointmentsData)
 
-      // Mock patients data with Mr. Singh's correct wallet - 
+      // Mock patients data with Mr. Singh's correct wallet - WAHEGURU JI
       const mockPatients = [
         {
           id: "patient_1",
-          name: "Mr. Singh ()",
+          name: "Mr. Singh (WAHEGURU JI)",
           walletAddress: TEST_PATIENT_WALLET,
           age: 45,
           phone: "+1 (555) WAHEGURU",
@@ -134,7 +134,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
         },
         {
           id: "patient_2",
-          name: "Mrs. Kaur ()",
+          name: "Mrs. Kaur (WAHEGURU JI)",
           walletAddress: "PatientWallet987654321098765432109876",
           age: 38,
           phone: "+1 (555) 234-5678",
@@ -151,7 +151,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
         },
         {
           id: "patient_3",
-          name: "Mr. Sharma ()",
+          name: "Mr. Sharma (WAHEGURU JI)",
           walletAddress: "PatientWallet456789012345678901234567",
           age: 52,
           phone: "+1 (555) 345-6789",
@@ -169,9 +169,9 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
       ]
 
       setPatients(mockPatients)
-      console.log(" - Dashboard data loaded successfully")
+      console.log("WAHEGURU JI - Dashboard data loaded successfully")
     } catch (error) {
-      console.error(" - Error loading dashboard data:", error)
+      console.error("WAHEGURU JI - Error loading dashboard data:", error)
       toast({
         title: "Error Loading Data",
         description: "Failed to load dashboard data. Please try again.",
@@ -187,9 +187,9 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
       const allReports = getAllNFTReports()
       const doctorReports = allReports.filter((report) => report.doctorWallet === walletAddress)
       setCreatedReports(doctorReports)
-      console.log(" - Loaded created reports:", doctorReports.length)
+      console.log("WAHEGURU JI - Loaded created reports:", doctorReports.length)
     } catch (error) {
-      console.error(" - Error loading created reports:", error)
+      console.error("WAHEGURU JI - Error loading created reports:", error)
     }
   }
 
@@ -205,26 +205,26 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
 
     setIsCreatingReport(true)
     try {
-      console.log(" - Creating NFT report for patient:", selectedPatient.walletAddress)
+      console.log("WAHEGURU JI - Creating NFT report for patient:", selectedPatient.walletAddress)
 
       const reportData = {
         title: reportForm.title,
         content: reportForm.content,
         date: reportForm.date,
         doctorName: "Dr. WAHEGURU Singh",
-        remarks: reportForm.remarks || "Medical report created with 's blessings",
+        remarks: reportForm.remarks || "Medical report created with WAHEGURU JI's blessings",
         pdfFile: reportForm.pdfFile,
       }
 
       const nftReport = await createMedicalReportNFTWithPDF(walletAddress, selectedPatient.walletAddress, reportData)
 
-      console.log(" - NFT Report created successfully:", nftReport)
+      console.log("WAHEGURU JI - NFT Report created successfully:", nftReport)
 
       // Refresh created reports
       loadCreatedReports()
 
       toast({
-        title: "Report Created Successfully! 🎉 ",
+        title: "Report Created Successfully! 🎉 WAHEGURU JI",
         description: `Medical NFT report sent to ${selectedPatient.name}'s wallet: ${selectedPatient.walletAddress.slice(0, 8)}...`,
       })
 
@@ -239,7 +239,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
       setReportDialogOpen(false)
       setSelectedPatient(null)
     } catch (error) {
-      console.error(" - Error creating report:", error)
+      console.error("WAHEGURU JI - Error creating report:", error)
       toast({
         title: "Error Creating Report",
         description: "Failed to create medical report. Please try again.",
@@ -274,7 +274,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
       const newAppointment = await createAppointment(appointmentData)
 
       toast({
-        title: "Appointment Created! ",
+        title: "Appointment Created! WAHEGURU JI",
         description: `Appointment scheduled with ${selectedPatient.name} for ${appointmentForm.date} at ${appointmentForm.time}`,
       })
 
@@ -292,7 +292,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
       setAppointmentDialogOpen(false)
       setSelectedPatient(null)
     } catch (error) {
-      console.error(" - Error creating appointment:", error)
+      console.error("WAHEGURU JI - Error creating appointment:", error)
       toast({
         title: "Error Creating Appointment",
         description: "Failed to create appointment. Please try again.",
@@ -310,7 +310,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
         // 10MB limit
         setReportForm({ ...reportForm, pdfFile: file })
         toast({
-          title: "File Uploaded - ",
+          title: "File Uploaded - WAHEGURU JI",
           description: `PDF file "${file.name}" uploaded successfully.`,
         })
       } else {
@@ -326,7 +326,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
   const handleRefreshReports = () => {
     loadCreatedReports()
     toast({
-      title: "Reports Refreshed - ",
+      title: "Reports Refreshed - WAHEGURU JI",
       description: "Created reports list has been updated.",
     })
   }
@@ -375,7 +375,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <Activity className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p>Loading doctor dashboard... </p>
+          <p>Loading doctor dashboard... WAHEGURU JI</p>
         </div>
       </div>
     )
@@ -637,7 +637,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
             {/* Quick Actions */}
             <Card className="border-2 border-red-200 bg-gradient-to-r from-red-50 to-orange-50">
               <CardHeader>
-                <CardTitle className="text-red-800">Quick Actions - </CardTitle>
+                <CardTitle className="text-red-800">Quick Actions - WAHEGURU JI</CardTitle>
                 <CardDescription>Common tasks and shortcuts</CardDescription>
               </CardHeader>
               <CardContent>
@@ -979,7 +979,7 @@ export function EnhancedDoctorDashboard({ walletAddress, onLogout }: EnhancedDoc
           <DialogHeader>
             <DialogTitle className="flex items-center">
               <FileText className="h-5 w-5 mr-2" />
-              Create Medical NFT Report - 
+              Create Medical NFT Report - WAHEGURU JI
             </DialogTitle>
             <DialogDescription>
               Create a blockchain-verified medical report that will be sent as an NFT to the patient's wallet.

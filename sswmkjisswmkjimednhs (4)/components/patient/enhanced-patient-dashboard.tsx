@@ -57,7 +57,7 @@ export function EnhancedPatientDashboard({ walletAddress, patientName }: Patient
   useEffect(() => {
     const handleNewReport = (data: any) => {
       if (data.patientWallet === walletAddress) {
-        console.log(" - New NFT report received:", data)
+        console.log("WAHEGURU JI - New NFT report received:", data)
         loadNFTReports()
         toast({
           title: "New Medical Report Received! 🎉",
@@ -76,7 +76,7 @@ export function EnhancedPatientDashboard({ walletAddress, patientName }: Patient
   const loadPatientData = async () => {
     try {
       setIsLoading(true)
-      console.log(" - Loading patient data for:", walletAddress)
+      console.log("WAHEGURU JI - Loading patient data for:", walletAddress)
 
       const [nftData, appointmentsData, patientData] = await Promise.all([
         getPatientMedicalNFTs(walletAddress),
@@ -88,9 +88,9 @@ export function EnhancedPatientDashboard({ walletAddress, patientName }: Patient
       setAppointments(appointmentsData)
       setPatientInfo(patientData)
 
-      console.log(" - Patient data loaded successfully")
+      console.log("WAHEGURU JI - Patient data loaded successfully")
     } catch (error) {
-      console.error(" - Error loading patient data:", error)
+      console.error("WAHEGURU JI - Error loading patient data:", error)
       toast({
         title: "Error Loading Data",
         description: "Failed to load patient data. Please try again.",
@@ -204,7 +204,7 @@ export function EnhancedPatientDashboard({ walletAddress, patientName }: Patient
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <Activity className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p>Loading your medical records... </p>
+          <p>Loading your medical records... WAHEGURU JI</p>
         </div>
       </div>
     )
@@ -447,7 +447,7 @@ export function EnhancedPatientDashboard({ walletAddress, patientName }: Patient
               <CardHeader>
                 <CardTitle className="flex items-center text-green-800">
                   <Heart className="h-5 w-5 mr-2" />
-                  Health Summary - 's Blessings
+                  Health Summary - WAHEGURU JI's Blessings
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -470,7 +470,7 @@ export function EnhancedPatientDashboard({ walletAddress, patientName }: Patient
                   <Sparkles className="h-4 w-4" />
                   <AlertDescription>
                     All your medical records are securely stored as NFTs on the Solana blockchain, ensuring permanent
-                    access and verification.  protects your health data! 🙏
+                    access and verification. WAHEGURU JI protects your health data! 🙏
                   </AlertDescription>
                 </Alert>
               </CardContent>

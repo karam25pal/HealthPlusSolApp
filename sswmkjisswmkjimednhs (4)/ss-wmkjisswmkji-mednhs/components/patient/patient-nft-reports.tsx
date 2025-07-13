@@ -73,13 +73,13 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
     loadPatientNFTs()
   }, [walletAddress])
 
-  // Set up real-time updates - 
+  // Set up real-time updates - WAHEGURU JI
   useEffect(() => {
     const handleNewReport = (event: any) => {
-      console.log(" - New report event received:", event.detail)
+      console.log("WAHEGURU JI - New report event received:", event.detail)
       if (event.detail.patientWallet === walletAddress) {
         toast({
-          title: "New Medical Report Received! 🎉 ",
+          title: "New Medical Report Received! 🎉 WAHEGURU JI",
           description: `You have received a new medical NFT report: ${event.detail.nft.metadata.name}`,
         })
         // Reload reports
@@ -93,10 +93,10 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
     }
   }, [walletAddress])
 
-  // Auto-refresh every 10 seconds - 
+  // Auto-refresh every 10 seconds - WAHEGURU JI
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(" - Auto-refreshing reports...")
+      console.log("WAHEGURU JI - Auto-refreshing reports...")
       loadPatientNFTs()
     }, 10000)
 
@@ -106,7 +106,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
   const loadPatientNFTs = async () => {
     try {
       setIsLoading(true)
-      console.log(" - Loading NFTs for patient:", walletAddress)
+      console.log("WAHEGURU JI - Loading NFTs for patient:", walletAddress)
 
       // Refresh from storage first
       refreshReportsFromStorage()
@@ -115,14 +115,14 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
       setNftReports(patientNFTs)
       setLastRefresh(new Date())
 
-      console.log(" - Loaded NFTs:", patientNFTs.length)
-      console.log(" - NFT Details:", patientNFTs)
+      console.log("WAHEGURU JI - Loaded NFTs:", patientNFTs.length)
+      console.log("WAHEGURU JI - NFT Details:", patientNFTs)
 
       // Debug: Show all reports
       const allReports = getAllNFTReports()
-      console.log(" - All reports in system:", allReports.length)
+      console.log("WAHEGURU JI - All reports in system:", allReports.length)
     } catch (error) {
-      console.error(" - Error loading NFTs:", error)
+      console.error("WAHEGURU JI - Error loading NFTs:", error)
       toast({
         title: "Error Loading Reports",
         description: "Failed to load medical reports. Please try again.",
@@ -135,7 +135,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
 
   const handleRefresh = () => {
     toast({
-      title: "Refreshing Reports - ",
+      title: "Refreshing Reports - WAHEGURU JI",
       description: "Checking for new medical reports...",
     })
     loadPatientNFTs()
@@ -162,7 +162,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
         variant: result.verified ? "default" : "destructive",
       })
     } catch (error) {
-      console.error(" - Error verifying NFT:", error)
+      console.error("WAHEGURU JI - Error verifying NFT:", error)
       toast({
         title: "Verification Error",
         description: "Failed to verify NFT on blockchain.",
@@ -177,11 +177,11 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
     try {
       exportReportData(nft)
       toast({
-        title: "Report Exported - ",
+        title: "Report Exported - WAHEGURU JI",
         description: "Medical report data has been downloaded as JSON file.",
       })
     } catch (error) {
-      console.error(" - Error exporting report:", error)
+      console.error("WAHEGURU JI - Error exporting report:", error)
       toast({
         title: "Export Error",
         description: "Failed to export report data.",
@@ -194,14 +194,14 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
     if (navigator.share) {
       navigator.share({
         title: nft.metadata.name,
-        text: `Medical Report: ${nft.metadata.name} - `,
+        text: `Medical Report: ${nft.metadata.name} - WAHEGURU JI`,
         url: nft.explorer || window.location.href,
       })
     } else {
       // Fallback for browsers that don't support Web Share API
       navigator.clipboard.writeText(nft.explorer || window.location.href)
       toast({
-        title: "Link Copied - ",
+        title: "Link Copied - WAHEGURU JI",
         description: "Report link copied to clipboard!",
       })
     }
@@ -306,7 +306,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
               <DropdownMenuContent align="end" className="w-56 animate-in slide-in-from-top-2">
                 <DropdownMenuLabel>
                   <div>
-                    <p className="font-medium">{isTestWallet ? "Mr. Singh ()" : "Patient"}</p>
+                    <p className="font-medium">{isTestWallet ? "Mr. Singh (WAHEGURU JI)" : "Patient"}</p>
                     <p className="text-xs text-gray-500">{isTestWallet ? "Test Patient Account" : "Patient Account"}</p>
                     <p className="text-xs text-gray-400 truncate">{walletAddress.slice(0, 20)}...</p>
                   </div>
@@ -345,7 +345,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Welcome, {isTestWallet ? "Mr. Singh!" : "Patient!"}</h1>
-              <p className="text-gray-600 mt-1">Your secure medical records on blockchain - </p>
+              <p className="text-gray-600 mt-1">Your secure medical records on blockchain - WAHEGURU JI</p>
               {isTestWallet && (
                 <Badge variant="outline" className="mt-2 text-blue-600 border-blue-200">
                   Test Patient Wallet
@@ -379,7 +379,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
               </Avatar>
               <div className="flex-1">
                 <h2 className="text-xl font-semibold text-gray-900">
-                  {isTestWallet ? "Mr. Singh ()" : "Patient"}
+                  {isTestWallet ? "Mr. Singh (WAHEGURU JI)" : "Patient"}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2 text-sm text-gray-600">
                   <div className="flex items-center">
@@ -520,7 +520,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
                 {isLoading ? (
                   <div className="text-center py-12">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                    <p className="text-sm text-gray-500">Loading your medical reports... </p>
+                    <p className="text-sm text-gray-500">Loading your medical reports... WAHEGURU JI</p>
                   </div>
                 ) : filteredNFTs.length === 0 ? (
                   <div className="text-center py-12">
@@ -651,7 +651,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
           <CardHeader>
             <CardTitle className="flex items-center text-green-800">
               <Shield className="h-5 w-5 mr-2" />
-              Wallet Information - 
+              Wallet Information - WAHEGURU JI
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -700,7 +700,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
               <Sparkles className="h-4 w-4" />
               <AlertDescription>
                 All your medical records are securely stored as NFTs on the Solana blockchain, ensuring permanent access
-                and verification.  protects your health data! 🙏
+                and verification. WAHEGURU JI protects your health data! 🙏
               </AlertDescription>
             </Alert>
           </CardContent>
@@ -713,7 +713,7 @@ export function PatientNFTReports({ walletAddress, onLogout }: PatientNFTReports
           <DialogHeader>
             <DialogTitle className="flex items-center">
               <FileText className="h-5 w-5 mr-2" />
-              Medical Report Details - 
+              Medical Report Details - WAHEGURU JI
             </DialogTitle>
           </DialogHeader>
 

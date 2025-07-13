@@ -8,7 +8,7 @@ export const USER_ROLES = {
 
 export type UserRole = (typeof USER_ROLES)[keyof typeof USER_ROLES]
 
-// Specific wallet addresses - !
+// Specific wallet addresses - WAHEGURU JI!
 const DOCTOR_WALLET = "626yQWQb5CvSihetyvd1UZdJWQEYb7YdEHjjR5R7hgewji"
 const PATIENT_WALLET = "kTgKvTpTypFqP44APkt7b6PDnkPzG4trnctb3Z65eNHWAHEGURU"
 
@@ -49,23 +49,23 @@ const IPFS_GATEWAY = "https://gateway.pinata.cloud/ipfs/"
 
 // Enhanced function to get user role with specific wallets
 export async function getUserRole(walletAddress: string): Promise<UserRole> {
-  console.log(" - Checking wallet role:", walletAddress)
+  console.log("WAHEGURU JI - Checking wallet role:", walletAddress)
 
   // Check demo wallets first
   const demoWallet = DEMO_WALLETS.find((w) => w.address === walletAddress)
   if (demoWallet) {
-    console.log(" - Demo wallet detected:", demoWallet.name, demoWallet.role)
+    console.log("WAHEGURU JI - Demo wallet detected:", demoWallet.name, demoWallet.role)
     return demoWallet.role as UserRole
   }
 
   // Check specific wallet addresses
   if (walletAddress === DOCTOR_WALLET) {
-    console.log(" - Doctor wallet detected!")
+    console.log("WAHEGURU JI - Doctor wallet detected!")
     return USER_ROLES.DOCTOR
   }
 
   if (walletAddress === PATIENT_WALLET) {
-    console.log(" - Patient wallet detected!")
+    console.log("WAHEGURU JI - Patient wallet detected!")
     return USER_ROLES.PATIENT
   }
 
@@ -94,7 +94,7 @@ const appointmentsStore: any[] = [
     time: "10:00 AM",
     type: "Consultation",
     status: "pending",
-    notes: "Regular checkup - ",
+    notes: "Regular checkup - WAHEGURU JI",
     createdAt: new Date().toISOString(),
   },
   {
@@ -119,9 +119,9 @@ const nftReportsStore: any[] = [
     patientWallet: PATIENT_WALLET,
     doctorWallet: DOCTOR_WALLET,
     metadata: {
-      name: "Blood Test Results - ",
+      name: "Blood Test Results - WAHEGURU JI",
       description:
-        "Complete blood count and lipid panel results. All values within normal range. 's blessings for good health.",
+        "Complete blood count and lipid panel results. All values within normal range. WAHEGURU JI's blessings for good health.",
       image: "/placeholder.svg?height=200&width=200",
       attributes: [
         { trait_type: "Type", value: "Lab Report" },
@@ -177,7 +177,7 @@ const patientsDatabase = [
 
 // Real IPFS upload function simulation
 export async function uploadToIPFS(file: File): Promise<string> {
-  console.log(" - Uploading file to IPFS:", file.name, "Size:", file.size, "bytes")
+  console.log("WAHEGURU JI - Uploading file to IPFS:", file.name, "Size:", file.size, "bytes")
 
   try {
     // Simulate file validation
@@ -190,35 +190,35 @@ export async function uploadToIPFS(file: File): Promise<string> {
     const steps = ["Preparing file...", "Connecting to IPFS...", "Uploading to network...", "Generating hash..."]
 
     for (let i = 0; i < steps.length; i++) {
-      console.log(` - ${steps[i]}`)
+      console.log(`WAHEGURU JI - ${steps[i]}`)
       await new Promise((resolve) => setTimeout(resolve, 500))
     }
 
     // Generate realistic IPFS hash
     const ipfsHash = `QmWAHEGURU${Date.now()}${Math.random().toString(36).substr(2, 15)}`
-    console.log(" - File uploaded to IPFS successfully:", ipfsHash)
+    console.log("WAHEGURU JI - File uploaded to IPFS successfully:", ipfsHash)
 
     return ipfsHash
   } catch (error) {
-    console.error(" - Error uploading to IPFS:", error)
+    console.error("WAHEGURU JI - Error uploading to IPFS:", error)
     throw error
   }
 }
 
 // Upload JSON metadata to IPFS
 export async function uploadMetadataToIPFS(metadata: any): Promise<string> {
-  console.log(" - Uploading metadata to IPFS")
+  console.log("WAHEGURU JI - Uploading metadata to IPFS")
 
   try {
     // Simulate metadata upload
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     const metadataHash = `QmWAHEGURUMeta${Date.now()}${Math.random().toString(36).substr(2, 15)}`
-    console.log(" - Metadata uploaded to IPFS:", metadataHash)
+    console.log("WAHEGURU JI - Metadata uploaded to IPFS:", metadataHash)
 
     return metadataHash
   } catch (error) {
-    console.error(" - Error uploading metadata:", error)
+    console.error("WAHEGURU JI - Error uploading metadata:", error)
     throw error
   }
 }
@@ -244,13 +244,13 @@ export class SolanaNFTManager {
       pdfFile?: File
     },
   ) {
-    console.log(" - Creating medical report NFT on Solana blockchain")
+    console.log("WAHEGURU JI - Creating medical report NFT on Solana blockchain")
 
     try {
       // Step 1: Upload PDF to IPFS if provided
       let pdfHash = null
       if (reportData.pdfFile) {
-        console.log(" - Step 1: Uploading PDF to IPFS...")
+        console.log("WAHEGURU JI - Step 1: Uploading PDF to IPFS...")
         pdfHash = await uploadToIPFS(reportData.pdfFile)
       }
 
@@ -259,7 +259,7 @@ export class SolanaNFTManager {
       const patientName = patient ? patient.name : "Unknown Patient"
 
       // Step 3: Create comprehensive NFT metadata
-      console.log(" - Step 2: Creating NFT metadata...")
+      console.log("WAHEGURU JI - Step 2: Creating NFT metadata...")
       const metadata = {
         name: reportData.title,
         symbol: "MEDREPORT",
@@ -307,19 +307,19 @@ export class SolanaNFTManager {
       }
 
       // Step 4: Upload metadata to IPFS
-      console.log(" - Step 3: Uploading metadata to IPFS...")
+      console.log("WAHEGURU JI - Step 3: Uploading metadata to IPFS...")
       const metadataHash = await uploadMetadataToIPFS(metadata)
       const metadataUri = `${IPFS_GATEWAY}${metadataHash}`
 
       // Step 5: Simulate NFT minting on Solana
-      console.log(" - Step 4: Minting NFT on Solana blockchain...")
+      console.log("WAHEGURU JI - Step 4: Minting NFT on Solana blockchain...")
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
       const mintAddress = `${Date.now()}${Math.random().toString(36).substr(2, 9).toUpperCase()}`
       const transactionSignature = `${Date.now()}${Math.random().toString(36).substr(2, 20)}`
 
       // Step 6: Simulate blockchain confirmation
-      console.log(" - Step 5: Waiting for blockchain confirmation...")
+      console.log("WAHEGURU JI - Step 5: Waiting for blockchain confirmation...")
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
       // Create NFT record
@@ -346,30 +346,30 @@ export class SolanaNFTManager {
       // Add to store
       nftReportsStore.push(nftReport)
 
-      console.log(" - NFT Report created successfully on Solana!")
+      console.log("WAHEGURU JI - NFT Report created successfully on Solana!")
       console.log("Transaction:", transactionSignature)
       console.log("Mint Address:", mintAddress)
 
       return nftReport
     } catch (error) {
-      console.error(" - Error creating NFT:", error)
+      console.error("WAHEGURU JI - Error creating NFT:", error)
       throw new Error(`Failed to create NFT: ${error.message}`)
     }
   }
 
   // Transfer NFT to patient wallet
   async transferNFTToPatient(mintAddress: string, patientWallet: string) {
-    console.log(" - Transferring NFT ownership to patient:", { mintAddress, patientWallet })
+    console.log("WAHEGURU JI - Transferring NFT ownership to patient:", { mintAddress, patientWallet })
 
     try {
       // Simulate NFT transfer transaction
-      console.log(" - Creating transfer transaction...")
+      console.log("WAHEGURU JI - Creating transfer transaction...")
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
-      console.log(" - Signing transaction...")
+      console.log("WAHEGURU JI - Signing transaction...")
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      console.log(" - Broadcasting to network...")
+      console.log("WAHEGURU JI - Broadcasting to network...")
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
       const transferSignature = `transfer_${Date.now()}_${Math.random().toString(36).substr(2, 20)}`
@@ -384,12 +384,12 @@ export class SolanaNFTManager {
         nft.transferExplorer = `https://explorer.solana.com/tx/${transferSignature}?cluster=devnet`
       }
 
-      console.log(" - NFT ownership transferred successfully!")
+      console.log("WAHEGURU JI - NFT ownership transferred successfully!")
       console.log("Transfer Transaction:", transferSignature)
 
       return transferSignature
     } catch (error) {
-      console.error(" - Error transferring NFT:", error)
+      console.error("WAHEGURU JI - Error transferring NFT:", error)
       throw error
     }
   }
@@ -397,7 +397,7 @@ export class SolanaNFTManager {
   // Get NFT details from blockchain
   async getNFTDetails(mintAddress: string) {
     try {
-      console.log(" - Fetching NFT details from blockchain:", mintAddress)
+      console.log("WAHEGURU JI - Fetching NFT details from blockchain:", mintAddress)
 
       // Simulate blockchain query
       await new Promise((resolve) => setTimeout(resolve, 500))
@@ -405,7 +405,7 @@ export class SolanaNFTManager {
       const nft = nftReportsStore.find((n) => n.mint === mintAddress)
 
       if (nft) {
-        console.log(" - NFT found on blockchain")
+        console.log("WAHEGURU JI - NFT found on blockchain")
         return {
           ...nft,
           onChain: true,
@@ -416,7 +416,7 @@ export class SolanaNFTManager {
 
       return null
     } catch (error) {
-      console.error(" - Error getting NFT details:", error)
+      console.error("WAHEGURU JI - Error getting NFT details:", error)
       return null
     }
   }
@@ -424,7 +424,7 @@ export class SolanaNFTManager {
   // Verify NFT authenticity
   async verifyNFTAuthenticity(mintAddress: string): Promise<boolean> {
     try {
-      console.log(" - Verifying NFT authenticity:", mintAddress)
+      console.log("WAHEGURU JI - Verifying NFT authenticity:", mintAddress)
 
       // Simulate blockchain verification
       await new Promise((resolve) => setTimeout(resolve, 800))
@@ -432,10 +432,10 @@ export class SolanaNFTManager {
       const nft = nftReportsStore.find((n) => n.mint === mintAddress)
       const isValid = !!nft && nft.blockchainConfirmed
 
-      console.log(" - NFT verification result:", isValid ? "AUTHENTIC" : "INVALID")
+      console.log("WAHEGURU JI - NFT verification result:", isValid ? "AUTHENTIC" : "INVALID")
       return isValid
     } catch (error) {
-      console.error(" - Error verifying NFT:", error)
+      console.error("WAHEGURU JI - Error verifying NFT:", error)
       return false
     }
   }
@@ -454,7 +454,7 @@ export async function createMedicalReportNFTWithPDF(
     pdfFile?: File
   },
 ) {
-  console.log(" - Starting complete NFT creation process...")
+  console.log("WAHEGURU JI - Starting complete NFT creation process...")
 
   try {
     const nftManager = new SolanaNFTManager()
@@ -464,7 +464,7 @@ export async function createMedicalReportNFTWithPDF(
 
     // Transfer to patient automatically
     if (nftReport.mint) {
-      console.log(" - Transferring NFT to patient...")
+      console.log("WAHEGURU JI - Transferring NFT to patient...")
       await nftManager.transferNFTToPatient(nftReport.mint, patientWallet)
     }
 
@@ -475,12 +475,12 @@ export async function createMedicalReportNFTWithPDF(
       report: nftReport,
     })
 
-    console.log(" - Complete NFT creation process finished successfully!")
+    console.log("WAHEGURU JI - Complete NFT creation process finished successfully!")
     console.log("Patient can now view their medical NFT report")
 
     return nftReport
   } catch (error) {
-    console.error(" - Error in NFT creation process:", error)
+    console.error("WAHEGURU JI - Error in NFT creation process:", error)
     throw error
   }
 }
@@ -494,7 +494,7 @@ export async function createAppointment(appointmentData: {
   type: string
   notes: string
 }) {
-  console.log(" - Creating appointment:", appointmentData)
+  console.log("WAHEGURU JI - Creating appointment:", appointmentData)
 
   // Find patient name
   const patient = patientsDatabase.find((p) => p.wallet === appointmentData.patientWallet)
@@ -514,13 +514,13 @@ export async function createAppointment(appointmentData: {
   // Simulate blockchain transaction
   await new Promise((resolve) => setTimeout(resolve, 1500))
 
-  console.log(" - Appointment created:", appointment)
+  console.log("WAHEGURU JI - Appointment created:", appointment)
   return appointment
 }
 
 // Approve appointment
 export async function approveAppointment(appointmentId: string) {
-  console.log(" - Approving appointment:", appointmentId)
+  console.log("WAHEGURU JI - Approving appointment:", appointmentId)
 
   const appointment = appointmentsStore.find((apt) => apt.id === appointmentId)
   if (appointment) {
@@ -534,7 +534,7 @@ export async function approveAppointment(appointmentId: string) {
 
 // Reject appointment
 export async function rejectAppointment(appointmentId: string, reason?: string) {
-  console.log(" - Rejecting appointment:", appointmentId)
+  console.log("WAHEGURU JI - Rejecting appointment:", appointmentId)
 
   const appointment = appointmentsStore.find((apt) => apt.id === appointmentId)
   if (appointment) {
@@ -549,7 +549,7 @@ export async function rejectAppointment(appointmentId: string, reason?: string) 
 
 // Get doctor's appointments with real-time data
 export async function getDoctorAppointments(doctorWallet: string) {
-  console.log(" - Fetching doctor appointments:", doctorWallet)
+  console.log("WAHEGURU JI - Fetching doctor appointments:", doctorWallet)
 
   const doctorAppointments = appointmentsStore.filter((apt) => apt.doctorWallet === doctorWallet)
 
@@ -559,7 +559,7 @@ export async function getDoctorAppointments(doctorWallet: string) {
 
 // Get patient's appointments
 export async function getPatientAppointments(patientWallet: string) {
-  console.log(" - Fetching patient appointments:", patientWallet)
+  console.log("WAHEGURU JI - Fetching patient appointments:", patientWallet)
 
   const patientAppointments = appointmentsStore.filter((apt) => apt.patientWallet === patientWallet)
 
@@ -569,7 +569,7 @@ export async function getPatientAppointments(patientWallet: string) {
 
 // Enhanced function to get patient's medical NFTs with real-time data
 export async function getPatientMedicalNFTs(walletAddress: string) {
-  console.log(" - Fetching medical NFTs for patient:", walletAddress)
+  console.log("WAHEGURU JI - Fetching medical NFTs for patient:", walletAddress)
 
   // Filter NFTs for this patient
   const patientNFTs = nftReportsStore.filter((nft) => nft.patientWallet === walletAddress)
@@ -577,13 +577,13 @@ export async function getPatientMedicalNFTs(walletAddress: string) {
   // Simulate blockchain query delay
   await new Promise((resolve) => setTimeout(resolve, 800))
 
-  console.log(` - Found ${patientNFTs.length} medical NFT reports for patient`)
+  console.log(`WAHEGURU JI - Found ${patientNFTs.length} medical NFT reports for patient`)
   return patientNFTs
 }
 
 // Get all patients for doctor
 export async function getDoctorPatients(doctorWallet: string) {
-  console.log(" - Fetching doctor's patients:", doctorWallet)
+  console.log("WAHEGURU JI - Fetching doctor's patients:", doctorWallet)
 
   // In real app, this would query blockchain for doctor's patients
   await new Promise((resolve) => setTimeout(resolve, 500))
@@ -598,14 +598,14 @@ export async function getPatientByWallet(walletAddress: string) {
 
 // Enhanced Solana operations
 export async function transferSOL(fromWallet: string, toWallet: string, amount: number): Promise<string> {
-  console.log(" - Transferring SOL:", { fromWallet, toWallet, amount })
+  console.log("WAHEGURU JI - Transferring SOL:", { fromWallet, toWallet, amount })
 
   // Simulate SOL transfer for payment
   const transactionSignature = `sol_transfer_${Date.now()}_${Math.random().toString(36).substr(2, 20)}`
 
   await new Promise((resolve) => setTimeout(resolve, 2000))
 
-  console.log(" - SOL transfer completed:", transactionSignature)
+  console.log("WAHEGURU JI - SOL transfer completed:", transactionSignature)
   return transactionSignature
 }
 
@@ -646,7 +646,7 @@ export class NotificationService {
   }
 
   static emit(event: string, data: any) {
-    console.log(" - Notification:", event, data)
+    console.log("WAHEGURU JI - Notification:", event, data)
     if (this.listeners[event]) {
       this.listeners[event].forEach((callback) => callback(data))
     }
@@ -655,7 +655,7 @@ export class NotificationService {
 
 // Enhanced report management functions
 export async function getAllReportsForDoctor(doctorWallet: string) {
-  console.log(" - Fetching all reports for doctor:", doctorWallet)
+  console.log("WAHEGURU JI - Fetching all reports for doctor:", doctorWallet)
 
   const doctorReports = nftReportsStore.filter((report) => report.doctorWallet === doctorWallet)
 
@@ -686,7 +686,7 @@ export async function updateReportStatus(reportId: string, status: string) {
 // Verify NFT on blockchain
 export async function verifyNFTOnBlockchain(mintAddress: string): Promise<boolean> {
   try {
-    console.log(" - Verifying NFT on blockchain:", mintAddress)
+    console.log("WAHEGURU JI - Verifying NFT on blockchain:", mintAddress)
 
     // Simulate blockchain verification
     await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -694,10 +694,10 @@ export async function verifyNFTOnBlockchain(mintAddress: string): Promise<boolea
     const nft = nftReportsStore.find((n) => n.mint === mintAddress)
     const isValid = !!nft && nft.blockchainConfirmed
 
-    console.log(" - NFT verification:", isValid ? "VALID" : "INVALID")
+    console.log("WAHEGURU JI - NFT verification:", isValid ? "VALID" : "INVALID")
     return isValid
   } catch (error) {
-    console.error(" - Error verifying NFT:", error)
+    console.error("WAHEGURU JI - Error verifying NFT:", error)
     return false
   }
 }
@@ -705,7 +705,7 @@ export async function verifyNFTOnBlockchain(mintAddress: string): Promise<boolea
 // Get transaction details
 export async function getTransactionDetails(signature: string) {
   try {
-    console.log(" - Getting transaction details:", signature)
+    console.log("WAHEGURU JI - Getting transaction details:", signature)
 
     // Simulate getting transaction details
     await new Promise((resolve) => setTimeout(resolve, 500))
@@ -720,21 +720,21 @@ export async function getTransactionDetails(signature: string) {
       explorer: `https://explorer.solana.com/tx/${signature}?cluster=devnet`,
     }
   } catch (error) {
-    console.error(" - Error getting transaction details:", error)
+    console.error("WAHEGURU JI - Error getting transaction details:", error)
     return null
   }
 }
 
 // Get all NFT reports (for admin/overview)
 export async function getAllNFTReports() {
-  console.log(" - Fetching all NFT reports")
+  console.log("WAHEGURU JI - Fetching all NFT reports")
   await new Promise((resolve) => setTimeout(resolve, 300))
   return nftReportsStore
 }
 
 // Search NFT reports
 export async function searchNFTReports(query: string, walletAddress?: string) {
-  console.log(" - Searching NFT reports:", query)
+  console.log("WAHEGURU JI - Searching NFT reports:", query)
 
   await new Promise((resolve) => setTimeout(resolve, 500))
 

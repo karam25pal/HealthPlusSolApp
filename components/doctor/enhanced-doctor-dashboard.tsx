@@ -110,7 +110,7 @@ export function EnhancedDoctorDashboard({
   useEffect(() => {
     const handleNewReport = (data: any) => {
       if (data.doctorWallet === walletAddress) {
-        console.log(" - Doctor received notification for new NFT report:", data.report)
+        console.log("WAHEGURU JI - Doctor received notification for new NFT report:", data.report)
         loadNFTReports()
       }
     }
@@ -123,7 +123,7 @@ export function EnhancedDoctorDashboard({
   const loadDoctorData = async () => {
     setIsLoading(true)
     try {
-      console.log(" - Loading doctor data for:", walletAddress)
+      console.log("WAHEGURU JI - Loading doctor data for:", walletAddress)
       const [patientsData, appointmentsData, reportsData] = await Promise.all([
         getDoctorPatients(walletAddress),
         getDoctorAppointments(walletAddress),
@@ -142,9 +142,9 @@ export function EnhancedDoctorDashboard({
       setFileAccessStatus(accessStatus)
 
       await loadWalletBalance()
-      console.log(" - Doctor data loaded successfully")
+      console.log("WAHEGURU JI - Doctor data loaded successfully")
     } catch (error) {
-      console.error(" - Error loading doctor data:", error)
+      console.error("WAHEGURU JI - Error loading doctor data:", error)
       toast({
         title: "Error Loading Data",
         description: "Failed to load doctor data. Please try again.",
@@ -188,7 +188,7 @@ export function EnhancedDoctorDashboard({
         description: "Appointment status updated to confirmed.",
       })
     } catch (error) {
-      console.error(" - Error approving appointment:", error)
+      console.error("WAHEGURU JI - Error approving appointment:", error)
       toast({
         title: "Approval Failed",
         description: "Could not approve appointment. Please try again.",
@@ -209,7 +209,7 @@ export function EnhancedDoctorDashboard({
         description: "Appointment status updated to rejected.",
       })
     } catch (error) {
-      console.error(" - Error rejecting appointment:", error)
+      console.error("WAHEGURU JI - Error rejecting appointment:", error)
       toast({
         title: "Rejection Failed",
         description: "Could not reject appointment. Please try again.",
@@ -265,7 +265,7 @@ export function EnhancedDoctorDashboard({
       setShowCreateNFTForm(false)
       await loadDoctorData()
     } catch (error: any) {
-      console.error(" - Error creating NFT:", error)
+      console.error("WAHEGURU JI - Error creating NFT:", error)
       toast({
         title: "NFT Creation Failed",
         description: `Error: ${error.message || "Failed to create medical NFT."}`,
@@ -297,7 +297,7 @@ export function EnhancedDoctorDashboard({
       })
       await loadWalletBalance()
     } catch (error: any) {
-      console.error(" - Airdrop error:", error)
+      console.error("WAHEGURU JI - Airdrop error:", error)
       toast({
         title: "Airdrop Failed",
         description: error.message || "Failed to request airdrop. Try again later.",
@@ -376,7 +376,7 @@ export function EnhancedDoctorDashboard({
     if (!report.ipfsHash) {
       toast({
         title: "No IPFS File",
-        description: "! No IPFS file available.",
+        description: "WAHEGURU JI! No IPFS file available.",
         variant: "destructive",
       })
       return
@@ -391,15 +391,15 @@ export function EnhancedDoctorDashboard({
       } else {
         toast({
           title: "File Unavailable",
-          description: "! File is not accessible on IPFS network. Please contact your doctor.",
+          description: "WAHEGURU JI! File is not accessible on IPFS network. Please contact your doctor.",
           variant: "destructive",
         })
       }
     } catch (error) {
-      console.error(" - Error checking file access:", error)
+      console.error("WAHEGURU JI - Error checking file access:", error)
       toast({
         title: "Access Error",
-        description: "! Error accessing file.",
+        description: "WAHEGURU JI! Error accessing file.",
         variant: "destructive",
       })
     }
@@ -408,17 +408,17 @@ export function EnhancedDoctorDashboard({
   const handleVerifyNFT = async (mintAddress: string) => {
     setIsVerifying(true)
     try {
-      console.log(" - Verifying NFT:", mintAddress)
+      console.log("WAHEGURU JI - Verifying NFT:", mintAddress)
       await new Promise((resolve) => setTimeout(resolve, 2000))
       toast({
         title: "NFT Verified",
         description: `NFT with mint address ${mintAddress.slice(0, 8)}... is valid.`,
       })
     } catch (error) {
-      console.error(" - Error verifying NFT:", error)
+      console.error("WAHEGURU JI - Error verifying NFT:", error)
       toast({
         title: "Verification Failed",
-        description: " - Could not verify NFT. Please try again.",
+        description: "WAHEGURU JI - Could not verify NFT. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -431,7 +431,7 @@ export function EnhancedDoctorDashboard({
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <Activity className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p>Loading doctor dashboard... </p>
+          <p>Loading doctor dashboard... WAHEGURU JI</p>
         </div>
       </div>
     )

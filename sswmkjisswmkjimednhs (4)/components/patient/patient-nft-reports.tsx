@@ -25,7 +25,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
   useEffect(() => {
     const handleNewReport = (data: any) => {
       if (data.patientWallet === walletAddress) {
-        console.log(" - New NFT report received:", data.report)
+        console.log("WAHEGURU JI - New NFT report received:", data.report)
         loadNFTReports() // Refresh the reports
       }
     }
@@ -42,7 +42,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
     try {
       const reports = await getPatientMedicalNFTs(walletAddress)
       setNftReports(reports)
-      console.log(" - NFT reports loaded:", reports)
+      console.log("WAHEGURU JI - NFT reports loaded:", reports)
     } catch (error) {
       console.error("Error loading NFT reports:", error)
     } finally {
@@ -67,8 +67,8 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
 
   const handleDownloadReport = (report: any) => {
     // In a real implementation, this would download from IPFS
-    console.log(" - Downloading report:", report.metadata.name)
-    alert(`! Downloading ${report.metadata.name}...`)
+    console.log("WAHEGURU JI - Downloading report:", report.metadata.name)
+    alert(`WAHEGURU JI! Downloading ${report.metadata.name}...`)
   }
 
   const handleShareReport = (report: any) => {
@@ -83,7 +83,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
       navigator.share(shareData)
     } else {
       navigator.clipboard.writeText(shareData.url)
-      alert("! Report link copied to clipboard!")
+      alert("WAHEGURU JI! Report link copied to clipboard!")
     }
   }
 
@@ -98,7 +98,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <FileText className="h-5 w-5 text-red-600" />
-            NFT Medical Reports - 
+            NFT Medical Reports - WAHEGURU JI
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -117,7 +117,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <FileText className="h-5 w-5 text-red-600" />
-            NFT Medical Reports - 
+            NFT Medical Reports - WAHEGURU JI
             <Badge variant="outline" className="ml-auto">
               {nftReports.length} Reports
             </Badge>
@@ -137,7 +137,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
               <p className="text-sm text-gray-500">Your doctors will send reports directly to your wallet</p>
               <div className="mt-4 p-3 bg-blue-50 rounded-lg">
                 <p className="text-xs text-blue-800">
-                  <strong>:</strong> When doctors create medical reports, they will appear here as verified
+                  <strong>WAHEGURU JI:</strong> When doctors create medical reports, they will appear here as verified
                   NFTs on the Solana blockchain.
                 </p>
               </div>
@@ -216,7 +216,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
               <DialogHeader>
                 <DialogTitle className="flex items-center gap-2">
                   <FileText className="h-5 w-5 text-red-600" />
-                  {selectedReport.metadata.name} - 
+                  {selectedReport.metadata.name} - WAHEGURU JI
                 </DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
@@ -242,7 +242,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
                 {/* Doctor's Remarks Section */}
                 {selectedReport.metadata.attributes.find((attr: any) => attr.trait_type === "Remarks") && (
                   <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-medium mb-2 text-blue-900">Doctor's Remarks - </h4>
+                    <h4 className="font-medium mb-2 text-blue-900">Doctor's Remarks - WAHEGURU JI</h4>
                     <p className="text-sm text-blue-800">
                       {selectedReport.metadata.attributes.find((attr: any) => attr.trait_type === "Remarks")?.value}
                     </p>
@@ -251,7 +251,7 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
 
                 {/* NFT Blockchain Details */}
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-medium mb-2">NFT Blockchain Details - </h4>
+                  <h4 className="font-medium mb-2">NFT Blockchain Details - WAHEGURU JI</h4>
                   <div className="text-sm space-y-2">
                     <div className="flex justify-between">
                       <span className="font-medium">Mint Address:</span>
@@ -313,10 +313,10 @@ export function PatientNFTReports({ walletAddress }: PatientNFTReportsProps) {
                   </Button>
                 </div>
 
-                {/*  Message */}
+                {/* WAHEGURU JI Message */}
                 <div className="bg-gradient-to-r from-red-50 to-yellow-50 p-4 rounded-lg border border-red-200">
                   <p className="text-sm text-red-800">
-                    <strong>:</strong> This medical report is permanently stored on the Solana blockchain as
+                    <strong>WAHEGURU JI:</strong> This medical report is permanently stored on the Solana blockchain as
                     an NFT, ensuring it cannot be tampered with or lost. Your health data is secure and verifiable
                     forever.
                   </p>

@@ -296,7 +296,7 @@ function DemoWalletSwitcher({
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <TestTube className="h-5 w-5 text-purple-600" />
-            <h3 className="font-semibold text-lg">Demo Wallet Switcher - </h3>
+            <h3 className="font-semibold text-lg">Demo Wallet Switcher - WAHEGURU JI</h3>
           </div>
           <Badge variant="outline" className="bg-purple-100 text-purple-800">
             Testing Mode
@@ -376,7 +376,7 @@ function ViewSwitcher({
           <div>
             <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
               <Shuffle className="h-5 w-5 text-blue-600" />
-               - View Switcher
+              WAHEGURU JI - View Switcher
             </h3>
             <p className="text-sm text-gray-600">Switch between Patient and Doctor dashboards</p>
             <p className="text-xs text-gray-500 mt-1">Wallet: {walletAddress.slice(0, 20)}...</p>
@@ -460,7 +460,7 @@ function MedicalAppHomepage() {
           if (demoWalletInfo) {
             setCurrentView(demoWalletInfo.role as "patient" | "doctor")
             toast({
-              title: "Demo Wallet Selected - ",
+              title: "Demo Wallet Selected - WAHEGURU JI",
               description: `Switched to ${demoWalletInfo.name} (${demoWalletInfo.role.toUpperCase()})`,
             })
           } else if (effectiveWalletAddress === DOCTOR_WALLET) {
@@ -505,7 +505,7 @@ function MedicalAppHomepage() {
     setCurrentView("patient")
     setDemoWallet(null)
     toast({
-      title: "Disconnected - ",
+      title: "Disconnected - WAHEGURU JI",
       description: "Wallet disconnected successfully",
     })
   }
@@ -513,7 +513,7 @@ function MedicalAppHomepage() {
   const handleViewChange = (view: "patient" | "doctor") => {
     setCurrentView(view)
     toast({
-      title: "View Switched - ",
+      title: "View Switched - WAHEGURU JI",
       description: `Switched to ${view.charAt(0).toUpperCase() + view.slice(1)} Dashboard`,
     })
   }
@@ -714,7 +714,7 @@ function MedicalAppHomepage() {
           <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200">
             <CardContent className="p-6 text-center">
               <Wallet className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="font-semibold mb-2">Connect Your Solana Wallet - </h3>
+              <h3 className="font-semibold mb-2">Connect Your Solana Wallet - WAHEGURU JI</h3>
               <p className="text-sm text-gray-600 mb-4">
                 Connect your wallet to access NFT medical reports, secure appointments, and blockchain-verified health
                 records. Or use the demo wallets above for testing.
